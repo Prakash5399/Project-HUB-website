@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Email Slicer using Python
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    def email_slicer(email):
+                        try:
+                            # Split the email address into username and domain
+                            username, domain = email.split('@')
+
+                            # Display the results
+                            print(f"Username: {username}")
+                            print(f"Domain: {domain}")
+                        except ValueError:
+                            print("Invalid email address format")
+
+                    if __name__ == "__main__":
+                        # Get email address from the user
+                        user_email = input("Enter your email address: ")
+                        email_slicer(user_email)
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

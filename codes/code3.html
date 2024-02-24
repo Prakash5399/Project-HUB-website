@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Car Rental System using C++
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    #include <iostream>
+                    #include <vector>
+                    #include <string>
+                    
+                    class Car {
+                    private:
+                        std::string brand;
+                        std::string model;
+                        bool available;
+                    
+                    public:
+                        Car(std::string brand, std::string model) : brand(brand), model(model), available(true) {}
+                    
+                        std::string getBrand() const {
+                            return brand;
+                        }
+                    
+                        std::string getModel() const {
+                            return model;
+                        }
+                    
+                        bool isAvailable() const {
+                            return available;
+                        }
+                    
+                        void rent() {
+                            available = false;
+                        }
+                    
+                        void returnCar() {
+                            available = true;
+                        }
+                    };
+                    
+                    class Customer {
+                    private:
+                        std::string name;
+                    
+                    public:
+                        Customer(std::string name) : name(name) {}
+                    
+                        std::string getName() const {
+                            return name;
+                        }
+                    };
+                    
+                    class CarRentalSystem {
+                    private:
+                        std::vector<Car> cars;
+                        std::vector<Customer> customers;
+                    
+                    public:
+                        void addCar(const Car& car) {
+                            cars.push_back(car);
+                        }
+                    
+                        void addCustomer(const Customer& customer) {
+                            customers.push_back(customer);
+                        }
+                    
+                        void displayAvailableCars() const {
+                            std::cout << "Available Cars:" << std::endl;
+                            for (const Car& car : cars) {
+                                if (car.isAvailable()) {
+                                    std::cout << car.getBrand() << " " << car.getModel() << std::endl;
+                                }
+                            }
+                            std::cout << std::endl;
+                        }
+                    
+                        void rentCar(const std::string& customerName, const std::string& carBrand, const std::string& carModel) {
+                            for (Car& car : cars) {
+                                if (car.getBrand() == carBrand && car.getModel() == carModel && car.isAvailable()) {
+                                    car.rent();
+                                    std::cout << "Car rented successfully to " << customerName << std::endl;
+                                    return;
+                                }
+                            }
+                            std::cout << "Car not available or does not exist." << std::endl;
+                        }
+                    
+                        void returnCar(const std::string& carBrand, const std::string& carModel) {
+                            for (Car& car : cars) {
+                                if (car.getBrand() == carBrand && car.getModel() == carModel) {
+                                    car.returnCar();
+                                    std::cout << "Car returned successfully." << std::endl;
+                                    return;
+                                }
+                            }
+                            std::cout << "Car not found." << std::endl;
+                        }
+                    };
+                    
+                    int main() {
+                        CarRentalSystem rentalSystem;
+                    
+                        Car car1("Toyota", "Camry");
+                        Car car2("Honda", "Civic");
+                    
+                        rentalSystem.addCar(car1);
+                        rentalSystem.addCar(car2);
+                    
+                        Customer customer1("John Doe");
+                        Customer customer2("Jane Smith");
+                    
+                        rentalSystem.addCustomer(customer1);
+                        rentalSystem.addCustomer(customer2);
+                    
+                        rentalSystem.displayAvailableCars();
+                    
+                        rentalSystem.rentCar("John Doe", "Toyota", "Camry");
+                        rentalSystem.rentCar("Jane Smith", "Honda", "Civic");
+                    
+                        rentalSystem.displayAvailableCars();
+                    
+                        rentalSystem.returnCar("Toyota", "Camry");
+                    
+                        rentalSystem.displayAvailableCars();
+                    
+                        return 0;
+                    }
+                        
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            School Billing System using C
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    #include <stdio.h>
+                    #include <string.h>
+                    
+                    // Define structure for student
+                    struct Student {
+                        char name[50];
+                        int rollNumber;
+                        float feesPaid;
+                    };
+                    
+                    // Function to display student details
+                    void displayStudent(struct Student student) {
+                        printf("\nStudent Details:\n");
+                        printf("Name: %s\n", student.name);
+                        printf("Roll Number: %d\n", student.rollNumber);
+                        printf("Fees Paid: %.2f\n", student.feesPaid);
+                    }
+                    
+                    // Function to calculate remaining fees
+                    float calculateRemainingFees(float totalFees, float feesPaid) {
+                        return totalFees - feesPaid;
+                    }
+                    
+                    // Function to process billing
+                    void processBilling(struct Student *student, float totalFees) {
+                        float feesToPay;
+                    
+                        printf("Enter the amount to pay: ");
+                        scanf("%f", &feesToPay);
+                    
+                        if (feesToPay <= 0) {
+                            printf("Invalid amount. Amount should be greater than 0.\n");
+                            return;
+                        }
+                    
+                        student->feesPaid += feesToPay;
+                    
+                        printf("Payment successful!\n");
+                        printf("Remaining Fees: %.2f\n", calculateRemainingFees(totalFees, student->feesPaid));
+                    }
+                    
+                    int main() {
+                        struct Student student1 = {"John Doe", 101, 0.0};
+                        float totalFees = 1000.0; // Set the total fees for the student
+                    
+                        printf("School Billing System\n");
+                    
+                        displayStudent(student1);
+                    
+                        // Process billing for the student
+                        processBilling(&student1, totalFees);
+                    
+                        // Display updated student details
+                        displayStudent(student1);
+                    
+                        return 0;
+                    }
+                        
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

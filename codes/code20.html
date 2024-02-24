@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Binary Caluculator using JavaScript
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                            &lt;title&gt;Binary Calculator&lt;/title&gt;
+                            &lt;style&gt;
+                                body {
+                                font-family: Arial, sans-serif;
+                                text-align: center;
+                                margin: 50px;
+                                }
+                                input {
+                                width: 200px;
+                                padding: 10px;
+                                margin: 10px;
+                                }
+                                button {
+                                padding: 10px;
+                                margin: 10px;
+                                cursor: pointer;
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h2&gt;Binary Calculator&lt;/h2&gt;
+                            &lt;input type="text" id="binaryInput" placeholder="Enter binary number"&gt;
+                            &lt;br&gt;
+                            &lt;button onclick="convertToDecimal()"&gt;Convert to Decimal&lt;/button&gt;
+                            &lt;button onclick="convertToBinary()"&gt;Convert to Binary&lt;/button&gt;
+                            &lt;br&gt;
+                            &lt;p id="result"&gt;&lt;/p&gt;
+
+                        &lt;script&gt;
+                            function convertToDecimal() {
+                            const binaryInput = document.getElementById('binaryInput').value;
+                            const decimalResult = parseInt(binaryInput, 2);
+                            document.getElementById('result').innerHTML = 'Decimal: ' + decimalResult;
+                            }
+
+                            function convertToBinary() {
+                            const decimalInput = document.getElementById('binaryInput').value;
+                            const binaryResult = (parseInt(decimalInput)).toString(2);
+                            document.getElementById('result').innerHTML = 'Binary: ' + binaryResult;
+                            }
+                        &lt;/script&gt;
+                        &lt;/body&gt;
+                        &lt;/html&gt;
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

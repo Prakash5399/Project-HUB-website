@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Simple ChatBot using Python
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    import nltk
+                    import random
+                    from nltk.chat.util import Chat, reflections
+
+                    # Define patterns and responses
+                    patterns = [
+                        (r'hi|hello|hey', ['Hi there!', 'Hello!', 'Hey!']),
+                        (r'how are you', ['I am fine, thank you!', 'I am doing well. How about you?']),
+                        (r'what is your name', ["I'm just a simple chatbot.", "You can call me ChatBot."]),
+                        (r'bye|goodbye', ['Goodbye!', 'See you later!', 'Bye!']),
+                        (r'(.*)', ["I'm sorry, I didn't understand that.", "Can you please rephrase that?"])
+                    ]
+
+                    # Create a ChatBot instance
+                    chatbot = Chat(patterns, reflections)
+
+                    def simple_chatbot():
+                        print("Simple ChatBot: Hello! How can I assist you today?")
+
+                        while True:
+                            user_input = input("You: ").lower()
+
+                            if user_input == 'exit':
+                                print("Simple ChatBot: Goodbye!")
+                                break
+
+                            response = chatbot.respond(user_input)
+                            print("Simple ChatBot:", response)
+
+                    if __name__ == "__main__":
+                        nltk.download('punkt')
+                        simple_chatbot()
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

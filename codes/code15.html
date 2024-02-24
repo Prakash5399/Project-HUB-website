@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Wordcount Tools using Java
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    import java.io.BufferedReader;
+                    import java.io.FileReader;
+                    import java.io.IOException;
+                    import java.util.HashMap;
+                    import java.util.Map;
+
+                    public class WordCountTool {
+
+                        public static Map<String, Integer> countWords(String filePath) {
+                            Map<String, Integer> wordCountMap = new HashMap<>();
+
+                            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+                                String line;
+                                while ((line = reader.readLine()) != null) {
+                                    String[] words = line.split("\\s+"); // Split by whitespace
+                                    for (String word : words) {
+                                        word = word.toLowerCase(); // Convert to lowercase to ensure case-insensitive counting
+                                        word = word.replaceAll("[^a-zA-Z]", ""); // Remove non-alphabetic characters
+                                        if (!word.isEmpty()) {
+                                            wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+                                        }
+                                    }
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            return wordCountMap;
+                        }
+
+                        public static void displayWordCount(Map<String, Integer> wordCountMap) {
+                            System.out.println("\nWord Count:");
+                            for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
+                                System.out.println(entry.getKey() + ": " + entry.getValue());
+                            }
+                        }
+
+                        public static void main(String[] args) {
+                            String filePath = "sample.txt"; // Replace with the path to your text file
+                            Map<String, Integer> wordCountMap = countWords(filePath);
+                            displayWordCount(wordCountMap);
+                        }
+                    }
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

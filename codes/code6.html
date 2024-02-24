@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Online Survey System using Java
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    import java.util.ArrayList;
+                    import java.util.List;
+                    import java.util.Scanner;
+
+                    class Question {
+                        private String text;
+                        private List<String> options;
+
+                        public Question(String text, List<String> options) {
+                            this.text = text;
+                            this.options = options;
+                        }
+
+                        public String getText() {
+                            return text;
+                        }
+
+                        public List<String> getOptions() {
+                            return options;
+                        }
+                    }
+
+                    class Survey {
+                        private List<Question> questions;
+
+                        public Survey(List<Question> questions) {
+                            this.questions = questions;
+                        }
+
+                        public void conductSurvey() {
+                            Scanner scanner = new Scanner(System.in);
+                            List<String> responses = new ArrayList<>();
+
+                            System.out.println("Welcome to the Online Survey!");
+
+                            for (Question question : questions) {
+                                System.out.println("\n" + question.getText());
+                                List<String> options = question.getOptions();
+                                for (int i = 0; i < options.size(); i++) {
+                                    System.out.println((i + 1) + ". " + options.get(i));
+                                }
+
+                                int selectedOption;
+                                do {
+                                    System.out.print("Select an option (1-" + options.size() + "): ");
+                                    selectedOption = scanner.nextInt();
+                                } while (selectedOption < 1 || selectedOption > options.size());
+
+                                responses.add(options.get(selectedOption - 1));
+                            }
+
+                            System.out.println("\nThank you for completing the survey!");
+
+                            // Display responses (you can save them to a database or file in a real-world application)
+                            System.out.println("\nSurvey Responses:");
+                            for (int i = 0; i < questions.size(); i++) {
+                                System.out.println(questions.get(i).getText() + ": " + responses.get(i));
+                            }
+                        }
+                    }
+
+                    public class OnlineSurveySystem {
+                        public static void main(String[] args) {
+                            // Create survey questions
+                            List<Question> questions = new ArrayList<>();
+                            questions.add(new Question("What is your favorite programming language?",
+                                    List.of("Java", "Python", "C++", "JavaScript")));
+                            questions.add(new Question("How often do you code?",
+                                    List.of("Daily", "Weekly", "Monthly", "Rarely")));
+
+                            // Create and conduct the survey
+                            Survey survey = new Survey(questions);
+                            survey.conductSurvey();
+                        }
+                    }
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

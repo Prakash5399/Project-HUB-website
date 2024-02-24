@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Electricity Billing System using Java
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    import java.util.ArrayList;
+                    import java.util.List;
+                    import java.util.Scanner;
+
+                    class Customer {
+                        private String customerId;
+                        private String customerName;
+                        private ElectricityMeter electricityMeter;
+
+                        public Customer(String customerId, String customerName) {
+                            this.customerId = customerId;
+                            this.customerName = customerName;
+                            this.electricityMeter = new ElectricityMeter();
+                        }
+
+                        public String getCustomerId() {
+                            return customerId;
+                        }
+
+                        public String getCustomerName() {
+                            return customerName;
+                        }
+
+                        public ElectricityMeter getElectricityMeter() {
+                            return electricityMeter;
+                        }
+                    }
+
+                    class ElectricityMeter {
+                        private double totalConsumption;
+
+                        public void recordConsumption(double consumption) {
+                            totalConsumption += consumption;
+                        }
+
+                        public double getTotalConsumption() {
+                            return totalConsumption;
+                        }
+                    }
+
+                    class Bill {
+                        private String customerId;
+                        private double amount;
+
+                        public Bill(String customerId, double amount) {
+                            this.customerId = customerId;
+                            this.amount = amount;
+                        }
+
+                        public String getCustomerId() {
+                            return customerId;
+                        }
+
+                        public double getAmount() {
+                            return amount;
+                        }
+                    }
+
+                    class ElectricityBillingSystem {
+                        private List<Customer> customers;
+                        private List<Bill> bills;
+
+                        public ElectricityBillingSystem() {
+                            this.customers = new ArrayList<>();
+                            this.bills = new ArrayList<>();
+                        }
+
+                        public void addCustomer(Customer customer) {
+                            customers.add(customer);
+                        }
+
+                        public void generateBill(Customer customer, double ratePerUnit) {
+                            double consumption = customer.getElectricityMeter().getTotalConsumption();
+                            double amount = consumption * ratePerUnit;
+
+                            Bill bill = new Bill(customer.getCustomerId(), amount);
+                            bills.add(bill);
+
+                            // Reset the total consumption for the next billing cycle
+                            customer.getElectricityMeter().recordConsumption(-consumption);
+                        }
+
+                        public void displayBills() {
+                            System.out.println("\nBills Generated:");
+                            for (Bill bill : bills) {
+                                System.out.println("Customer ID: " + bill.getCustomerId() + " | Amount: $" + bill.getAmount());
+                            }
+                        }
+                    }
+
+                    public class Main {
+                        public static void main(String[] args) {
+                            ElectricityBillingSystem billingSystem = new ElectricityBillingSystem();
+
+                            // Add customers
+                            Customer customer1 = new Customer("C1001", "John Doe");
+                            Customer customer2 = new Customer("C1002", "Jane Smith");
+                            billingSystem.addCustomer(customer1);
+                            billingSystem.addCustomer(customer2);
+
+                            // Simulate electricity consumption
+                            customer1.getElectricityMeter().recordConsumption(150.0);
+                            customer2.getElectricityMeter().recordConsumption(200.0);
+
+                            // Generate bills
+                            billingSystem.generateBill(customer1, 0.10); // Rate per unit: $0.10
+                            billingSystem.generateBill(customer2, 0.10);
+
+                            // Display generated bills
+                            billingSystem.displayBills();
+                        }
+                    }
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

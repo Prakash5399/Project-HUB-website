@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Fibonacci Generator using Python
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    def generate_fibonacci(n):
+                        fibonacci_sequence = [0, 1]
+
+                        for _ in range(2, n):
+                            next_number = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+                            fibonacci_sequence.append(next_number)
+
+                        return fibonacci_sequence
+
+                    if __name__ == "__main__":
+                        try:
+                            n = int(input("Enter the number of Fibonacci numbers to generate: "))
+                            if n < 1:
+                                raise ValueError("Number of terms should be greater than or equal to 1.")
+                            
+                            fibonacci_numbers = generate_fibonacci(n)
+                            print(f"Fibonacci sequence of {n} numbers: {fibonacci_numbers}")
+
+                        except ValueError as e:
+                            print(f"Error: {e}")
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Hangman Game using C
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    #include <stdio.h>
+                    #include <stdlib.h>
+                    #include <string.h>
+                    #include <ctype.h>
+                    #include <time.h>
+                    
+                    #define MAX_WORD_LENGTH 20
+                    #define MAX_TRIES 6
+                    
+                    // Function to choose a random word from an array
+                    const char *chooseRandomWord(const char *wordList[], int wordCount) {
+                        srand((unsigned int)time(NULL));
+                        int index = rand() % wordCount;
+                        return wordList[index];
+                    }
+                    
+                    // Function to initialize the guessed word with underscores
+                    void initializeGuessedWord(char *guessedWord, const char *word) {
+                        int length = strlen(word);
+                        for (int i = 0; i < length; i++) {
+                            guessedWord[i] = '_';
+                        }
+                        guessedWord[length] = '\0';
+                    }
+                    
+                    // Function to display the current state of the hangman
+                    void displayHangman(int incorrectGuesses) {
+                        const char *hangmanStages[] = {
+                            "  +---+\n"
+                            "  |   |\n"
+                            "      |\n"
+                            "      |\n"
+                            "      |\n"
+                            "      |\n"
+                            "=========",
+                            "  +---+\n"
+                            "  |   |\n"
+                            "  O   |\n"
+                            "      |\n"
+                            "      |\n"
+                            "      |\n"
+                            "=========",
+                            "  +---+\n"
+                            "  |   |\n"
+                            "  O   |\n"
+                            "  |   |\n"
+                            "      |\n"
+                            "      |\n"
+                            "=========",
+                            "  +---+\n"
+                            "  |   |\n"
+                            "  O   |\n"
+                            " /|   |\n"
+                            "      |\n"
+                            "      |\n"
+                            "=========",
+                            "  +---+\n"
+                            "  |   |\n"
+                            "  O   |\n"
+                            " /|\\  |\n"
+                            "      |\n"
+                            "      |\n"
+                            "=========",
+                            "  +---+\n"
+                            "  |   |\n"
+                            "  O   |\n"
+                            " /|\\  |\n"
+                            " /    |\n"
+                            "      |\n"
+                            "=========",
+                            "  +---+\n"
+                            "  |   |\n"
+                            "  O   |\n"
+                            " /|\\  |\n"
+                            " / \\  |\n"
+                            "      |\n"
+                            "========="
+                        };
+                    
+                        printf("%s\nIncorrect Guesses Left: %d\n", hangmanStages[incorrectGuesses], MAX_TRIES - incorrectGuesses);
+                    }
+                    
+                    // Function to check if the guessed word is complete
+                    int isWordComplete(const char *guessedWord) {
+                        return strchr(guessedWord, '_') == NULL;
+                    }
+                    
+                    // Function to update the guessed word based on the correct guess
+                    void updateGuessedWord(const char *word, char *guessedWord, char guessedLetter) {
+                        int length = strlen(word);
+                        for (int i = 0; i < length; i++) {
+                            if (word[i] == guessedLetter) {
+                                guessedWord[i] = guessedLetter;
+                            }
+                        }
+                    }
+                    
+                    int main() {
+                        const char *wordList[] = {"hangman", "programming", "computer", "software", "developer"};
+                        int wordCount = sizeof(wordList) / sizeof(wordList[0]);
+                    
+                        const char *wordToGuess = chooseRandomWord(wordList, wordCount);
+                    
+                        char guessedWord[MAX_WORD_LENGTH];
+                        initializeGuessedWord(guessedWord, wordToGuess);
+                    
+                        int incorrectGuesses = 0;
+                        char guessedLetters[MAX_TRIES];
+                        guessedLetters[0] = '\0';
+                    
+                        printf("Welcome to Hangman!\n");
+                    
+                        while (incorrectGuesses < MAX_TRIES) {
+                            displayHangman(incorrectGuesses);
+                            printf("Guessed Word: %s\n", guessedWord);
+                            printf("Guessed Letters: %s\n", guessedLetters);
+                    
+                            printf("Enter a letter: ");
+                            char guess;
+                            scanf(" %c", &guess);
+                            guess = tolower(guess);
+                    
+                            // Check if the letter has already been guessed
+                            if (strchr(guessedLetters, guess) != NULL) {
+                                printf("You already guessed that letter. Try again.\n");
+                                continue;
+                            }
+                    
+                            // Add the guessed letter to the list
+                            strncat(guessedLetters, &guess, 1);
+                    
+                            // Check if the guessed letter is in the word
+                            if (strchr(wordToGuess, guess) != NULL) {
+                                updateGuessedWord(wordToGuess, guessedWord, guess);
+                    
+                                // Check if the word is complete
+                                if (isWordComplete(guessedWord)) {
+                                    printf("Congratulations! You guessed the word: %s\n", wordToGuess);
+                                    break;
+                                }
+                            } else {
+                                incorrectGuesses++;
+                    
+                                // Check if the player has run out of attempts
+                                if (incorrectGuesses == MAX_TRIES) {
+                                    displayHangman(incorrectGuesses);
+                                    printf("Sorry, you ran out of attempts. The word was: %s\n", wordToGuess);
+                                }
+                            }
+                        }
+                    
+                        return 0;
+                    }
+                        
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

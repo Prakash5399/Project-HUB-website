@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Credit Card Validator using C++
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    #include <iostream>
+                    #include <string>
+                    #include <sstream>
+                    
+                    bool isValidCreditCard(const std::string& cardNumber) {
+                        int sum = 0;
+                        bool doubleDigit = false;
+                    
+                        for (int i = cardNumber.length() - 1; i >= 0; --i) {
+                            int digit = cardNumber[i] - '0';
+                    
+                            if (doubleDigit) {
+                                digit *= 2;
+                                if (digit > 9) {
+                                    digit = digit % 10 + 1;
+                                }
+                            }
+                    
+                            sum += digit;
+                            doubleDigit = !doubleDigit;
+                        }
+                    
+                        return (sum % 10 == 0);
+                    }
+                    
+                    int main() {
+                        std::string cardNumber;
+                    
+                        // Get the credit card number from the user
+                        std::cout << "Enter your credit card number: ";
+                        std::getline(std::cin, cardNumber);
+                    
+                        // Remove spaces from the input
+                        cardNumber.erase(std::remove(cardNumber.begin(), cardNumber.end(), ' '), cardNumber.end());
+                    
+                        // Validate the credit card number
+                        if (isValidCreditCard(cardNumber)) {
+                            std::cout << "Credit card number is valid." << std::endl;
+                        } else {
+                            std::cout << "Credit card number is not valid." << std::endl;
+                        }
+                    
+                        return 0;
+                    }
+                        
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

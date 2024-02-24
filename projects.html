@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="index.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+           Explore Projects
+        </h1>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search..." oninput="searchProjects()">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <section class="courses" id="courses">
+        <div class="courses-content">
+            <div class="row">
+                <img src="images/bankman.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code1.html"><h3>Bank Management System using C</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star-half' ></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{312 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <img src="images/airres.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code2.html"><h3>Airline Reservation System using Java</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{211 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <img src="images/carrental.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code3.html"><h3>Car Rental System using C++</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star-half' ></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{135 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <img src="images/chatbot.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code4.html"><h3>Simple ChatBot using Python</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star-half' ></i></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{466 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <img src="images/schoolbill.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code5.html"><h3>School Billing System using C</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{248 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <img src="images/survey.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code6.html"><h3>Online Survey System using Java</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{102 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/cric.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code7.html"><h3>Cricket Score Board using C</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star-half' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{365 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/calc.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code8.html"><h3>Simple Calculator using C</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{108 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/hang.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code9.html"><h3>Hangman Game using C</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{247 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/credit.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code10.html"><h3>Credit Card Validator using C++</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star-half'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{65 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/sudoku.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code11.html"></a><h3>Sudoku Game using C++</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{163 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/trade.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code12.html"><h3>Trading Application Project using C++</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{20 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/pass.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code13.html"><h3>Password Generator using Java</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star-half'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{251 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/elec.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code14.html"><h3>Electricity Billing System using Java</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{99 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/word.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code15.html"><h3>Wordcount Tools using Java</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{243 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/email.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code16.html"><h3>Email Slicer using Python</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{155 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/monty.jpg">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code17.html"><h3>Monty Hall Simulation using Python</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{311 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/fibno1.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code18.html"><h3>Fibonacci Generator using Python</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{496 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/clock.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code19.html"><h3>StopWatch using JavaScript</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star-half' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{226 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/binary.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code20.html"><h3>Binary Caluculator using JavaScript</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{53 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="images/task-scheduler.png">
+                <div class="courses-text">
+                    <h5>Free</h5>
+                    <a href="codes/code21.html"><h3>Task Sheduler using JavaScript</h3></a>
+                    <div class="rating">
+                        <div class="star">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bx-star' ></i></i></a>
+                        </div>
+                        <div class="review">
+                            <p>{261 Reviews}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+    <script>
+        function searchProjects() {
+            // Get the search input value
+            var searchInput = document.getElementById("searchInput").value.toLowerCase();
+
+            // Get all the project names (h3 elements)
+            var projectNames = document.querySelectorAll(".courses-text h3");
+
+            // Iterate through each project name and check if it matches the search input
+            projectNames.forEach(function (projectName) {
+                var name = projectName.textContent.toLowerCase();
+
+                // Toggle the visibility of the project based on the search input
+                projectName.closest(".row").style.display = name.includes(searchInput) ? "flex" : "none";
+            });
+        }
+    </script>
+
+        
+
+</body>
+</html>

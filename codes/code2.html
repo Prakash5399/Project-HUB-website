@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Airline Reservation System using Java
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    import java.util.ArrayList;
+                    import java.util.List;
+                    import java.util.Scanner;
+
+                    class Flight {
+                        private String flightNumber;
+                        private int availableSeats;
+
+                        public Flight(String flightNumber, int availableSeats) {
+                            this.flightNumber = flightNumber;
+                            this.availableSeats = availableSeats;
+                        }
+
+                        public String getFlightNumber() {
+                            return flightNumber;
+                        }
+
+                        public int getAvailableSeats() {
+                            return availableSeats;
+                        }
+
+                        public void bookSeats(int numSeats) {
+                            if (numSeats <= availableSeats) {
+                                availableSeats -= numSeats;
+                                System.out.println(numSeats + " seat(s) booked successfully for flight " + flightNumber);
+                            } else {
+                                System.out.println("Not enough seats available for flight " + flightNumber);
+                            }
+                        }
+                    }
+
+                    class Reservation {
+                        private String passengerName;
+                        private String flightNumber;
+                        private int numSeats;
+
+                        public Reservation(String passengerName, String flightNumber, int numSeats) {
+                            this.passengerName = passengerName;
+                            this.flightNumber = flightNumber;
+                            this.numSeats = numSeats;
+                        }
+
+                        public String getPassengerName() {
+                            return passengerName;
+                        }
+
+                        public String getFlightNumber() {
+                            return flightNumber;
+                        }
+
+                        public int getNumSeats() {
+                            return numSeats;
+                        }
+                    }
+
+                    class AirlineReservationSystem {
+                        private List<Flight> flights;
+                        private List<Reservation> reservations;
+
+                        public AirlineReservationSystem() {
+                            flights = new ArrayList<>();
+                            reservations = new ArrayList<>();
+                        }
+
+                        public void addFlight(Flight flight) {
+                            flights.add(flight);
+                        }
+
+                        public void displayAvailableFlights() {
+                            System.out.println("Available Flights:");
+                            for (Flight flight : flights) {
+                                System.out.println("Flight " + flight.getFlightNumber() + ", Available Seats: " + flight.getAvailableSeats());
+                            }
+                            System.out.println();
+                        }
+
+                        public void makeReservation(String passengerName, String flightNumber, int numSeats) {
+                            for (Flight flight : flights) {
+                                if (flight.getFlightNumber().equals(flightNumber)) {
+                                    flight.bookSeats(numSeats);
+                                    Reservation reservation = new Reservation(passengerName, flightNumber, numSeats);
+                                    reservations.add(reservation);
+                                    System.out.println("Reservation successful for " + passengerName + " on flight " + flightNumber);
+                                    return;
+                                }
+                            }
+                            System.out.println("Invalid flight number");
+                        }
+
+                        public void displayReservations() {
+                            System.out.println("Reservations:");
+                            for (Reservation reservation : reservations) {
+                                System.out.println("Passenger: " + reservation.getPassengerName() +
+                                        ", Flight: " + reservation.getFlightNumber() +
+                                        ", Seats: " + reservation.getNumSeats());
+                            }
+                            System.out.println();
+                        }
+                    }
+
+                    public class Main {
+                        public static void main(String[] args) {
+                            AirlineReservationSystem airlineSystem = new AirlineReservationSystem();
+
+                            Flight flight1 = new Flight("F001", 50);
+                            Flight flight2 = new Flight("F002", 30);
+
+                            airlineSystem.addFlight(flight1);
+                            airlineSystem.addFlight(flight2);
+
+                            airlineSystem.displayAvailableFlights();
+
+                            Scanner scanner = new Scanner(System.in);
+
+                            System.out.print("Enter passenger name: ");
+                            String passengerName = scanner.nextLine();
+
+                            System.out.print("Enter flight number: ");
+                            String flightNumber = scanner.nextLine();
+
+                            System.out.print("Enter number of seats to book: ");
+                            int numSeats = scanner.nextInt();
+
+                            airlineSystem.makeReservation(passengerName, flightNumber, numSeats);
+
+                            airlineSystem.displayReservations();
+
+                            scanner.close();
+                        }
+                    }
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

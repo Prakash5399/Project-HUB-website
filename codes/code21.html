@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Task Sheduler using JavaScript
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                            &lt;title&gt;Task Scheduler&lt;/title&gt;
+                            &lt;style&gt;
+                                body {
+                                font-family: Arial, sans-serif;
+                                text-align: center;
+                                margin: 50px;
+                                }
+                                input, select, button {
+                                padding: 10px;
+                                margin: 10px;
+                                }
+                                ul {
+                                list-style-type: none;
+                                padding: 0;
+                                }
+                                li {
+                                border: 1px solid #ddd;
+                                padding: 10px;
+                                margin: 5px;
+                                display: flex;
+                                justify-content: space-between;
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h2&gt;Task Scheduler&lt;/h2&gt;
+                            &lt;label for="task"&gt;Task:&lt;/label&gt;
+                            &lt;input type="text" id="task" placeholder="Enter task"&gt;
+                            &lt;br&gt;
+                            &lt;label for="date"&gt;Date:&lt;/label&gt;
+                            &lt;input type="date" id="date"&gt;
+                            &lt;br&gt;
+                            &lt;label for="time"&gt;Time:&lt;/label&gt;
+                            &lt;input type="time" id="time"&gt;
+                            &lt;br&gt;
+                            &lt;button onclick="scheduleTask()"&gt;Schedule Task&lt;/button&gt;
+                            &lt;br&gt;
+                            &lt;h3&gt;Scheduled Tasks&lt;/h3&gt;
+                            &lt;ul id="taskList"&gt;&lt;/ul&gt;
+
+                        &lt;script&gt;
+                            function scheduleTask() {
+                            const taskInput = document.getElementById('task').value;
+                            const dateInput = document.getElementById('date').value;
+                            const timeInput = document.getElementById('time').value;
+
+                            if (taskInput && dateInput && timeInput) {
+                                const scheduledTime = new Date(`${dateInput}T${timeInput}`);
+                                const currentTime = new Date();
+
+                                if (scheduledTime > currentTime) {
+                                const taskList = document.getElementById('taskList');
+                                const listItem = document.createElement('li');
+                                listItem.innerHTML = `
+                                    <span>${taskInput}</span>
+                                    <span>${scheduledTime.toLocaleString()}</span>
+                                    <button onclick="removeTask(this)">Remove</button>
+                                `;
+                                taskList.appendChild(listItem);
+
+                                // Clear input fields
+                                document.getElementById('task').value = '';
+                                document.getElementById('date').value = '';
+                                document.getElementById('time').value = '';
+                                } else {
+                                alert('Please select a future date and time for the task.');
+                                }
+                            } else {
+                                alert('Please fill in all the fields.');
+                            }
+                            }
+
+                            function removeTask(button) {
+                            const listItem = button.parentNode;
+                            listItem.parentNode.removeChild(listItem);
+                            }
+                        &lt;/script&gt;
+                        &lt;/body&gt;
+                        &lt;/html&gt;
+
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>

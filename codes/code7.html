@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project HUB</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <header class="head-part">
+        <div class="icon">
+            <a href="projects.html"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <h1 class="titbar" id="titbar1">
+            Cricket Score Board using C
+        </h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <a href="#"><i class='bx bx-search'></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                <code id="code" class="language-c">
+                    #include <stdio.h>
+
+                    // Define structure for cricket score board
+                    struct CricketScoreBoard {
+                        int runs;
+                        int wickets;
+                        float overs;
+                    };
+                    
+                    // Function to display the current score board
+                    void displayScoreBoard(struct CricketScoreBoard scoreBoard) {
+                        printf("\nCurrent Score Board:\n");
+                        printf("Runs: %d\n", scoreBoard.runs);
+                        printf("Wickets: %d\n", scoreBoard.wickets);
+                        printf("Overs: %.1f\n", scoreBoard.overs);
+                    }
+                    
+                    // Function to update the score board based on runs, wickets, and overs
+                    void updateScoreBoard(struct CricketScoreBoard *scoreBoard, int runs, int wickets, float overs) {
+                        scoreBoard->runs += runs;
+                        scoreBoard->wickets += wickets;
+                        scoreBoard->overs = overs;
+                    }
+                    
+                    int main() {
+                        struct CricketScoreBoard scoreBoard = {0, 0, 0.0};
+                        int runs, wickets;
+                        float overs;
+                    
+                        printf("Cricket Score Board\n");
+                    
+                        // Update the score board based on user input
+                        printf("Enter runs scored in this over: ");
+                        scanf("%d", &runs);
+                    
+                        printf("Enter wickets fallen in this over: ");
+                        scanf("%d", &wickets);
+                    
+                        printf("Enter overs bowled: ");
+                        scanf("%f", &overs);
+                    
+                        updateScoreBoard(&scoreBoard, runs, wickets, overs);
+                    
+                        // Display the updated score board
+                        displayScoreBoard(scoreBoard);
+                    
+                        return 0;
+                    }
+                        
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+<script src="prism.js">
+
+</script>
+</html>
